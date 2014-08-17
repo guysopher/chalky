@@ -29,7 +29,8 @@ void goTo(float x1, float y1){
 }
 
 void lineTo(float x1, float y1){
-  //start at the current location
+
+  //x, y are relative to the current position
   
   if (debug){
     Serial.print("Drawing Line to: ");    
@@ -56,8 +57,8 @@ void lineTo(float x1, float y1){
   forward(distance);
   
   //update current position and angle
-  curX = x1;
-  curY = y1;
+  curX += x1;
+  curY += y1;
   curA = nextA;
   
 }
