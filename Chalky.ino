@@ -11,10 +11,10 @@ Stepper motor2(64, in1Pin2, in3Pin2, in4Pin2, in2Pin2);
 
 
 boolean print_parsing = false;
-boolean print_lines = false;
-boolean print_movement = true;
+boolean print_lines = true;
+boolean print_movement = false;
 
-boolean allow_movement = true;
+boolean allow_movement = false;
 
 int buttonState;
 

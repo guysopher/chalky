@@ -77,8 +77,6 @@ double calcAngle(double x, double y){
 
 void turn(double angle){
 
-  digitalWrite(ledPin, HIGH);
-
   int steps = angle * stepsToAngleConv;
   if (print_movement){
     Serial.print("Turning ");
@@ -102,8 +100,6 @@ void turn(double angle){
 }
 
 void forward(double distance){
-
-  digitalWrite(ledPin, LOW);
 
   int steps = distance * stepsToDistanceConv;
   if (print_movement){
