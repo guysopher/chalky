@@ -11,7 +11,7 @@ void goTo(double x1, double y1){
   }
   
   //make sure we're not drawing
-  chalkDown();
+  chalkUp();
   
   //turn to the new angle
   double nextA = calcAngle(x1, y1);
@@ -22,10 +22,17 @@ void goTo(double x1, double y1){
   forward(distance);
   
   //update current position and angle
-  curX = x1;
-  curY = y1;
+  curX += x1;
+  curY += y1;
   curA = nextA;
-  
+ 
+  if (print_parsing){
+    Serial.print("Current position: (");    
+    Serial.print(curX);    
+    Serial.print(",");    
+    Serial.print(curY);    
+    Serial.println(") "); 
+  }
 }
 
 void lineTo(double x1, double y1){
@@ -62,7 +69,15 @@ void lineTo(double x1, double y1){
   curX += x1;
   curY += y1;
   curA = nextA;
-  
+ 
+  if (print_parsing){
+    Serial.print("Current position: (");    
+    Serial.print(curX);    
+    Serial.print(",");    
+    Serial.print(curY);    
+    Serial.println(") "); 
+  } 
+ 
 }
 
 double calcDistance(double x, double y){
@@ -76,6 +91,13 @@ double calcAngle(double x, double y){
 }
 
 void turn(double angle){
+  
+  //find the fastest way to turn
+  if (angle > pi){
+    angle -= (2*pi);
+  }else if (angle < ((-1)*pi)){
+    angle += (2*pi);
+  }
 
   int steps = angle * stepsToAngleConv;
   if (print_movement){
