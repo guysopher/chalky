@@ -1,7 +1,7 @@
 #include <math.h>
 #include <Stepper.h>
 
-const float pi = 3.14159
+const float pi = 3.14159;
 
 int buttonPin = 12;
 int ledPin = 13;
@@ -25,7 +25,7 @@ boolean testConversions = false;
 double tStep = 0.05;
 
 double stepsToAngleConv = 2000/pi;
-double stepsToDistanceConv = 1000/215 * 4; //by measurements + make the drawing 10 times larger;
+double stepsToDistanceConv = 1000/215 * 5; //by measurements + make the drawing 4 times larger;
 
 
 double curX = 0; //current X coord
@@ -36,8 +36,8 @@ void setup()
 {
   while (!Serial);
   Serial.begin(9600);
-  motor1.setSpeed(500);
-  motor2.setSpeed(500);
+  motor1.setSpeed(300);
+  motor2.setSpeed(300);
   pinMode(buttonPin, INPUT_PULLUP);
   pinMode(ledPin, OUTPUT);     
 
