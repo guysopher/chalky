@@ -39,7 +39,7 @@ void setup()
   motor1.setSpeed(300);
   motor2.setSpeed(300);
   pinMode(buttonPin, INPUT_PULLUP);
-  pinMode(ledPin, OUTPUT);     
+  pinMode(ledPin, OUTPUT);      
 
   Serial.println("READY");  
 }
